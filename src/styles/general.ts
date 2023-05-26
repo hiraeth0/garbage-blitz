@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Button = styled.button`
+export const Button = styled.button<{ disabled?: boolean }>`
   all: unset;
   box-sizing: border-box;
   display: flex;
@@ -12,4 +12,13 @@ export const Button = styled.button`
   background-color: #da6060;
   color: #ffffff;
   cursor: pointer;
+  user-select: none;
+
+  ${({ disabled }) =>
+    disabled
+      ? `
+    opacity: 0.5;
+    pointer-events: none;
+  `
+      : ''}
 `
